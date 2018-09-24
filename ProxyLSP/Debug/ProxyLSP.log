@@ -1,0 +1,42 @@
+﻿  stdafx.cpp
+  bor-util.c
+  client.c
+  log-util.c
+  net-util.c
+m:\projects\consoleapplication1\proxylsp\libsocks\net-util.c(64): warning C4101: “hp”: 未引用的局部变量
+  output-util.c
+  socks-common.c
+  socks4.c
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(66): warning C4013: “new_client_socket_no_ip”未定义；假设外部返回 int
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(73): warning C4013: “new_listen_socket”未定义；假设外部返回 int
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(41): warning C4101: “p”: 未引用的局部变量
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(45): warning C4101: “l”: 未引用的局部变量
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(43): warning C4101: “domain”: 未引用的局部变量
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(44): warning C4101: “chAddr”: 未引用的局部变量
+m:\projects\consoleapplication1\proxylsp\libsocks\socks4.c(126): warning C4013: “bor_getsockname_in”未定义；假设外部返回 int
+  socks5-client.c
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-client.c(61): warning C4267: “=”: 从“size_t”转换到“char”，可能丢失数据
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-client.c(106): warning C4018: “<”: 有符号/无符号不匹配
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-client.c(166): warning C4267: “=”: 从“size_t”转换到“char”，可能丢失数据
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-client.c(169): warning C4267: “=”: 从“size_t”转换到“char”，可能丢失数据
+  socks5-server.c
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(79): warning C4018: “<”: 有符号/无符号不匹配
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(133): warning C4018: “<”: 有符号/无符号不匹配
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(381): warning C4018: “>=”: 有符号/无符号不匹配
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(512): warning C4133: “函数”: 从“int *”到“char *”的类型不兼容
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(640): warning C4133: “函数”: 从“int *”到“char *”的类型不兼容
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(686): warning C4013: “build_request_ack4”未定义；假设外部返回 int
+m:\projects\consoleapplication1\proxylsp\libsocks\socks5-server.c(751): warning C4013: “test_request4”未定义；假设外部返回 int
+  ssl-util.c
+  正在生成代码...
+  sample.cpp
+m:\projects\consoleapplication1\proxylsp\sample.cpp(2): warning C4005: “UNICODE”: 宏重定义
+  m:\projects\consoleapplication1\proxylsp\sample.cpp: note: 参见“UNICODE”的前一个定义
+m:\projects\consoleapplication1\proxylsp\sample.cpp(3): warning C4005: “_UNICODE”: 宏重定义
+  m:\projects\consoleapplication1\proxylsp\sample.cpp: note: 参见“_UNICODE”的前一个定义
+m:\projects\consoleapplication1\proxylsp\sample.cpp(13): warning C4005: “ODS”: 宏重定义
+  m:\projects\consoleapplication1\proxylsp\debug.h(6): note: 参见“ODS”的前一个定义
+m:\projects\consoleapplication1\proxylsp\sample.cpp(14): warning C4005: “ODS1”: 宏重定义
+  m:\projects\consoleapplication1\proxylsp\debug.h(13): note: 参见“ODS1”的前一个定义
+    正在创建库 M:\Projects\ConsoleApplication1\Debug\ProxyLSP.lib 和对象 M:\Projects\ConsoleApplication1\Debug\ProxyLSP.exp
+  ProxyLSP.vcxproj -> M:\Projects\ConsoleApplication1\Debug\ProxyLSP.dll
