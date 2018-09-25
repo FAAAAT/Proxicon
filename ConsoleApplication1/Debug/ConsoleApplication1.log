@@ -1,7 +1,0 @@
-﻿  ConsoleApplication1.cpp
-m:\projects\consoleapplication1\consoleapplication1\lspinstaller.h(2): warning C4005: “UNICODE”: 宏重定义
-  m:\projects\consoleapplication1\consoleapplication1\consoleapplication1.cpp: note: 参见“UNICODE”的前一个定义
-m:\projects\consoleapplication1\consoleapplication1\lspinstaller.h(3): warning C4005: “_UNICODE”: 宏重定义
-  m:\projects\consoleapplication1\consoleapplication1\consoleapplication1.cpp: note: 参见“_UNICODE”的前一个定义
-m:\projects\consoleapplication1\consoleapplication1\consoleapplication1.cpp(12): warning C4018: “<”: 有符号/无符号不匹配
-  ConsoleApplication1.vcxproj -> M:\Projects\ConsoleApplication1\Debug\LSPInstaller.exe
