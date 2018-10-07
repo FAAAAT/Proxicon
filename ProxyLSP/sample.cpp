@@ -103,6 +103,30 @@ int WSPAPI WSPSendTo(
 		, iTolen, lpOverlapped, lpCompletionRoutine, lpThreadId, lpErrno);
 }
 
+int WSPAPI WSPConnect(
+	SOCKET s,
+	const struct sockaddr* name,
+	int namelen,
+	LPWSABUF lpCallerData,
+	LPWSABUF lpCalleeData,
+	LPQOS lpSQOS,
+	LPQOS lpGQOS,
+	LPINT lpErrno)
+{
+	TCHAR processName[MAX_PATH];
+	GetModuleFileName(NULL, processName, MAX_PATH);
+	ODS1(L"%ws is connecting..", processName);
+	if (s == INVALID_SOCKET)
+	{
+		WSACleanup();
+		return g_NextProcTable.lpWSPConnect(s, name, namelen, lpCallerData, lpCalleeData, lpSQOS, lpGQOS, lpErrno);
+	}
+
+	return g_NextProcTable.lpWSPConnect(s, name, namelen, lpCallerData, lpCalleeData, lpSQOS, lpGQOS, lpErrno);
+
+}
+
+
 int WSPAPI WSPBind(SOCKET s, const struct sockaddr* name, int namelen, LPINT lpErrno)
 {
 	//这里再进行处理(一般情况之下，Bind 都是作为服务程序用的函数：绑定端口后再进而监听)
