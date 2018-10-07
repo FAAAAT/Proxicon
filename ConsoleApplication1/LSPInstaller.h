@@ -110,8 +110,9 @@ BOOL InstallProvider(WCHAR *pwszPathName)
 	LayeredProtocolInfo.ProtocolChain.ChainLen = LAYERED_PROTOCOL; // 0;
 	LayeredProtocolInfo.dwProviderFlags |= PFL_HIDDEN;
 	// 安装
-	if (::WSCInstallProvider(&ProviderGuid,
-		pwszPathName, &LayeredProtocolInfo, 1, &nError) == SOCKET_ERROR)
+	int result = ::WSCInstallProvider(&ProviderGuid,
+		pwszPathName, &LayeredProtocolInfo, 1, &nError);
+	if ( result != 0)
 	{
 		return FALSE;
 	}
@@ -167,7 +168,7 @@ BOOL InstallProvider(WCHAR *pwszPathName)
 	FreeProvider(pProtoInfo);
 	pProtoInfo = GetProvider(&nProtocols);
 
-	DWORD dwIds[20];
+	DWORD dwIds[128];
 	int nIndex = 0;
 	// 添加我们的协议链
 	for (int i = 0; i < nProtocols; i++)

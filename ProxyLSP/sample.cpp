@@ -8,6 +8,7 @@
 #include <tchar.h>
 #include "Debug.h"
 #include <fstream>
+#include <share.h>
 
 #pragma comment(lib, "Ws2_32.lib")
 #define ODS(szOut)
@@ -16,12 +17,13 @@ WSPUPCALLTABLE g_pUpCallTable; // 上层函数列表。如果LSP创建了自己�
 WSPPROC_TABLE g_NextProcTable; // 下层函数列表
 TCHAR g_szCurrentApp[MAX_PATH]; // 当前调用本DLL的程序的名称
 
-BOOL APIENTRY DllMain(HANDLE hModule,DWORD ul_reason_for_call,LPVOID lpReserved)
+BOOL APIENTRY DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH:
 	{
+		ODS("Module loaded");
 		// 取得主模块的名称
 		::GetModuleFileName(NULL, g_szCurrentApp, MAX_PATH);
 	}
@@ -67,11 +69,23 @@ int WSPAPI WSPSendTo(
 	LPINT lpErrno
 )
 {
+
+	using std::ios;
+	using std::fstream;
+	using std::string;
+
+	fstream file("C:\\ProxiconLog.txt", ios::out | ios::app, _SH_DENYNO);
+
+	char content[2048];
+	sprintf(content, " query send to... %s", g_szCurrentApp);
+	file.write(content, sizeof(content) / sizeof(char));
+
 	ODS1(L" query send to... %s", g_szCurrentApp);
+	
+	file.close();
 
 	SOCKADDR_IN sa = *(SOCKADDR_IN*)lpTo;
-	if (sa.sin_port == htons(1880)) // 若符合则过滤掉了
-
+	if (false && sa.sin_port == htons(1880)) // 若符合则过滤掉了
 	{
 		int iError;
 		g_NextProcTable.lpWSPShutdown(s, SD_BOTH, &iError);
@@ -80,6 +94,9 @@ int WSPAPI WSPSendTo(
 		ODS(L" deny a sendto ");
 		return SOCKET_ERROR;
 	}
+
+
+
 
 
 	return g_NextProcTable.lpWSPSendTo(s, lpBuffers, dwBufferCount, lpNumberOfBytesSent, dwFlags, lpTo
